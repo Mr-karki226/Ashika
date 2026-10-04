@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ashika 🤍</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; font-family:Georgia, "Times New Roman", serif;
+  background:linear-gradient(135deg,#fff7fb,#eef7ff,#fffdf5);
+  color:#2f2b33; display:flex; justify-content:center; align-items:center;
+  padding:18px; overflow-x:hidden;
+}
+.screen{width:min(720px,100%); min-height:92vh; display:flex; align-items:center; justify-content:center}
+.card{
+  width:100%; background:rgba(255,255,255,.84); backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.9); border-radius:28px;
+  padding:30px 22px; box-shadow:0 18px 55px rgba(80,60,90,.14);
+  text-align:center; animation:fade .55s ease;
+}
+@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:clamp(25px,6vw,42px); margin:8px 0 18px}
+h2{font-size:clamp(21px,5vw,31px); margin:8px 0 20px}
+p{line-height:1.75; font-size:16px}
+.sub{color:#777; margin-bottom:22px}
+button{
+  border:0; border-radius:999px; padding:13px 24px; margin:7px;
+  font-size:15px; cursor:pointer; transition:.25s; font-weight:600;
+  background:#2f2b33; color:white;
+}
+button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.btn-soft{background:#f3e8f0;color:#4d3545}
+.back{background:transparent;color:#777;border:1px solid #ddd}
+.prank{font-size:18px;line-height:1.8}
+.loader{font-size:14px;color:#777;margin:18px 0;min-height:24px}
+.warning{font-size:40px;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.pass{display:flex;justify-content:center;gap:8px;margin:20px 0}
+.pass input{
+  width:52px;height:58px;text-align:center;font-size:25px;border:1px solid #ddd;
+  border-radius:14px;background:#fff;outline:none;
+}
+.error{color:#a34d61;line-height:1.7;margin:15px 0}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.topic{
+  background:linear-gradient(135deg,#fff,#faf3f7); color:#473846;
+  border:1px solid #eadde5; border-radius:18px; padding:17px 12px;
+  min-height:78px; display:flex;align-items:center;justify-content:center;
+}
+.letter{
+  text-align:left; white-space:pre-wrap; line-height:1.9; font-size:16px;
+  min-height:300px; padding:8px 2px;
+}
+.letter-title{text-align:center;margin-bottom:18px}
+.cursor{display:inline-block;width:2px;height:1.1em;background:#777;vertical-align:-2px;animation:blink .7s infinite}
+@keyframes blink{50%{opacity:0}}
+.hidden{display:none!important}
+.small{font-size:13px;color:#888}
+@media(max-width:500px){
+  .screen{min-height:96vh}
+  .card{padding:25px 17px;border-radius:24px}
+  .topics{grid-template-columns:1fr}
+  .letter{font-size:15px;line-height:1.85}
+  button{padding:12px 20px}
+}
+
+/* ===== PREMIUM OPEN-WHEN TOPIC VIBES ===== */
+body.topic-birthday{
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,214,232,.90), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(255,230,174,.85), transparent 30%),
+    linear-gradient(135deg,#fff1f7,#fff8e9,#f7f1ff);
+}
+body.topic-sad{
+  background:
+    radial-gradient(circle at 20% 15%, rgba(119,145,185,.30), transparent 30%),
+    radial-gradient(circle at 80% 85%, rgba(91,112,151,.25), transparent 32%),
+    linear-gradient(135deg,#dfe8f2,#eef2f7,#d9e1ec);
+}
+body.topic-cry{
+  background:
+    radial-gradient(circle at 50% 0%, rgba(105,124,155,.28), transparent 35%),
+    linear-gradient(160deg,#202936,#394657,#151c27);
+}
+body.topic-smile{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,226,137,.80), transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(255,176,211,.65), transparent 32%),
+    linear-gradient(135deg,#fff8cf,#fff0f7,#f4efff);
+}
+body.topic-miss{
+  background:
+    radial-gradient(circle at 75% 18%, rgba(255,255,255,.28), transparent 3%),
+    radial-gradient(circle at 20% 70%, rgba(127,157,210,.22), transparent 28%),
+    linear-gradient(150deg,#11182d,#202a49,#10162b);
+}
+body.topic-motivation{
+  background:
+    radial-gradient(circle at 72% 12%, rgba(255,216,128,.75), transparent 25%),
+    radial-gradient(circle at 15% 80%, rgba(119,169,205,.35), transparent 30%),
+    linear-gradient(145deg,#eaf5ff,#fff4d7,#e8f0ff);
+}
+body.topic-special{
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.80), transparent 27%),
+    radial-gradient(circle at 15% 80%, rgba(215,190,255,.42), transparent 30%),
+    linear-gradient(135deg,#f7f1ff,#fff7fb,#edf7ff);
+}
+body.topic-last{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,205,137,.28), transparent 28%),
+    radial-gradient(circle at 85% 85%, rgba(255,180,210,.18), transparent 30%),
+    linear-gradient(145deg,#171521,#292233,#12131d);
+}
+
+/* Topic cards get a premium glass treatment */
+.topic{
+  position:relative;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 8px 22px rgba(50,35,65,.08);
+}
+.topic::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,rgba(255,255,255,.38),transparent 55%);
+  pointer-events:none;
+}
+.topic-emoji{
+  display:block;
+  font-size:25px;
+  line-height:1.1;
+  margin-bottom:6px;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.10));
+}
+.letter-vibe{
+  font-size:30px;
+  margin-bottom:2px;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.12));
+}
+
+</style>
+</head>
+<body>
+<div class="screen">
+
+<!-- STEP 1 -->
+<section class="card" id="step1">
+  <div style="font-size:45px">💌</div>
+  <h1>Just One Little Question…</h1>
+  <p><b>Is your name ASHIKA OJHA and Do u have any especial day today?होइन भने ढाँट्ने होइन है।⚠️</b></p>
+  <button onclick="yesPrank()">YES 🤍</button>
+  <button class="btn-soft" onclick="showNo()">NO 🙈</button>
+</section>
+
+<!-- FIRST PRANK -->
+<section class="card hidden" id="prank">
+  <div class="prank">
+    <h2>Wait… 🤨</h2>
+    <div class="loader" id="loader">Checking identity...</div>
+    <div id="prankContent" class="hidden">
+      <div class="warning">⚠️</div>
+      <h2>WARNING!</h2>
+      <div id="cuteWarning" class="hidden">
+        <p><b>Too much cuteness detected,Miss Ojha.</b> 😂</p>
+        <div id="continueMsg" class="hidden">
+          <p>Okay okay… you got me. 😌<br>अब चाई अघि बढ्न सक्छौं, little one.</p>
+          <button onclick="goStep2()">Continue →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NO -->
+<section class="card hidden" id="noStep">
+  <div style="font-size:45px">😏</div>
+  <h2>Oops!</h2>
+  <p><b>तिमीलाई अर्काको चिठी हेर्न लाजलाग्दैन?</b></p>
+  <button class="back" onclick="backTo1()">← Back</button>
+</section>
+
+<!-- STEP 2 -->
+<section class="card hidden" id="step2">
+  <div style="font-size:42px">🔐</div>
+  <h2>खोई हो त भन्यौं तर नी check त गर्नै पर्यो नी 😌</h2>
+  <p class="sub">Enter the 4-digit passcode</p>
+  <div class="pass">
+    <input maxlength="1" inputmode="numeric" id="p1">
+    <input maxlength="1" inputmode="numeric" id="p2">
+    <input maxlength="1" inputmode="numeric" id="p3">
+    <input maxlength="1" inputmode="numeric" id="p4">
+  </div>
+  <div id="wrong" class="error hidden">
+    होइन बाबा यो कस्तो मान्छे हो भन्या, लाजसरम नभएको, भनिकन कस्तो नलागेको होला खोइ??
+  </div>
+  <button onclick="checkPass()">Unlock 🤍</button>
+  <br>
+  <button class="back" onclick="backTo1()">← Back</button>
+</section>
+
+<!-- STEP 2 PRANK -->
+<section class="card hidden" id="step2Prank">
+  <div style="font-size:42px">🤨</div>
+  <h2>तर एकछिन… 🤨</h2>
+  <p class="prank">यो secret letter खोल्नुअघि अर्को एउटा कुरा verify गर्नुपर्छ।</p>
+  <button onclick="secondPrank()">Okay, verify me 😌</button>
+</section>
+
+<!-- STEP 2 PRANK TEST -->
+<section class="card hidden" id="step2Test">
+  <div style="font-size:42px">🧐</div>
+  <h2>Are you really Ashika?</h2>
+  <button onclick="testYes()">YES, obviously 😂</button>
+  <button class="btn-soft" onclick="testNo()">NO, I am innocent 😇</button>
+</section>
+
+<!-- STEP 2 PRANK RESULT -->
+<section class="card hidden" id="step2Result">
+  <div style="font-size:42px">😂</div>
+  <h2 id="testResultText">Hmm… suspiciously confident. 😂</h2>
+  <p>Okay, okay… one last test.</p>
+  <button onclick="showPasscode()">Continue →</button>
+</section>
+
+<!-- BLACKOUT -->
+<section id="blackout" class="hidden" style="position:fixed;inset:0;background:#000;color:#fff;z-index:9999;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;">
+  <div id="blackoutText" style="font-family:Arial,sans-serif;font-size:clamp(18px,5vw,28px);line-height:1.8;"></div>
+</section>
+
+<!-- STEP 3 -->
+<section class="card hidden" id="topicsStep">
+  <div style="font-size:42px">🤍</div>
+  <h2>Open When…</h2>
+  <p class="sub">Choose one little letter.</p>
+  <div class="topics">
+    <button class="topic" onclick="openLetter(0)">🎂✨<br>Open when its ur birthday</button>
+    <button class="topic" onclick="openLetter(1)">🥺🌧️<br>Open when u r feelin' sad</button>
+    <button class="topic" onclick="openLetter(2)">😭💧<br>Open when U feel cry</button>
+    <button class="topic" onclick="openLetter(3)">😌🌸<br>Open when U need smile</button>
+    <button class="topic" onclick="openLetter(4)">🫂🌙<br>Open when U miss me</button>
+    <button class="topic" onclick="openLetter(5)">💪🌅<br>Open when U need motivation</button>
+    <button class="topic" onclick="openLetter(6)">🤍✨<br>Open when u need to remember how especial u are</button>
+    <button class="topic" onclick="openLetter(7)">🔐🖤<br>Last one msg</button>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="card hidden" id="letterStep">
+  <h2 class="letter-title" id="letterTitle"></h2>
+  <div class="letter" id="letterText"></div>
+  <div id="letterActions" class="hidden">
+    <button class="back" onclick="backToTopics()">← Back to Letters</button>
+  </div>
+</section>
+
+</div>
+
+<script>
+const messages = [
+`प्रिय Ashika,
+आज तिम्रो birthday हो, त्यसैले सबैभन्दा पहिले एउटा कुरा Happy Birthday, my little one. 🤍🎂
+तिमीलाई सम्झिँदा मलाई सधैँ एउटा कुरा याद आउँछ—तिमी मेरो life को first batch को student थियौ। त्यहीँबाट हाम्रो चिनजान भयो। School मा म तिम्रो teacher थिएँ, तिमी मेरी student।तर समयसँगै त्यो relation school को classroom मै सीमित रहेनछ।
+बाहिर आएपछि थाहा भयो, तिमी केवल मेरी student होइन रहेछौ—तिमी त मेरो आफ्नै सानी बहिनी जस्ती भइसकेछौ।
+सायद सबै सम्बन्धलाई नामले define गर्न सकिँदैन। केही सम्बन्धहरू आफैँ बन्दै जाँदा रहेछन्।
+तिमी मेरो life को first batch को एउटा student भएर आयौ, तर आज मेरो little one sister भएर बसेकी छौ। 
+तिम्रो जीवन सधैँ खुशी, शान्ति र सफलताले भरियोस्। तिम्रो smile कहिल्यै नहराओस्।
+Happy Birthday, Ashika Bune.
+Always keep smiling, little one. 🤍
+— Dada, Mr. Karki`,
+
+`Hey Ms. Ojha,
+आज मन अलि भारी लागेको भएर यो चिठी खोल्दैछौ होला।
+सुन, जिन्दगीमा हरेक दिन राम्रो हुँदैन। कहिलेकाहीँ बिना कारण पनि मन उदास हुन्छ, आफूलाई एक्लो जस्तो लाग्छ। त्यो बेला strong बन्नैपर्छ भन्ने छैन।
+कहिलेकाहीँ बस् थोरै रोऊ, आराम गर, अनि फेरि बिस्तारै उठ र एउटा कुरा याद राख, तिमी एक्लै छैनौ।
+School मा teacher भएर चिनिएको मान्छे, आज तिमीलाई आफ्नै बहिनी जसरी हेर्छ भने त्यसको एउटा कारण छ, तिमी साँच्चै नै special छौ। त्यसैले धेरै सोचेर आफूलाई दुख नदेऊ है।
+Smile  little one.
+तिम्रो smile तिम्रो strength हो.`,
+
+`Aa...shika,
+रुन मन लागेको छ भने रोऊ।
+हरेक आँसु लुकाउनुपर्छ भन्ने छैन। कहिलेकाहीँ मनमा जम्मा भएका कुराहरू आँखाबाट बाहिर आउन पनि दिनुपर्छ। तर रोइसकेपछि एउटा कुरा सम्झिनू कि तिमी कमजोर भएर रोएकी होइनौ, धेरै कुरा सहेर पनि अगाडि बढिरहेकी भएर थाकेकी हौ। थोरै आराम गर, आफूलाई समय देऊ। अनि जब मन अलि हल्का हुन्छ, फेरि आफ्नो त्यो पुरानै smile लिएर फर्किनू। किनकि मेरो बहिनीलाई उदास देख्नुभन्दा हाँसेको देख्न मलाई धेरै मन पर्छ। 🤍 नाम त सुनेकै होलाउ Mr. Karki`,
+
+`Oiii  OjHa! 😌
+यदि यो खोलेकी छौ भने अहिले तिमीलाई एउटा smile चाहिएको रहेछ। त्यसैले एउटा काम गर, सबै tension ५ मिनेटका लागि side मा राख। आफ्नो पुराना memories सम्झ, हाम्रो पहिलो देखिका मिठा सम्झना सम्झ, school का ती दिनहरू सम्झ, अनि सोच "म त Karki Sirको first batch को student पो हुँ!” 😂Teacher-student भएर सुरु भएको हाम्रो चिनजान आज कहाँ पुग्यो है? त्यही भएर एउटा कुरा चाहिँ पक्का, तिमी student भएर आयौ, तर एउटी प्यारी sister भएर बस्यौ। 🤍
+अब smile गर। हो, त्यही smile!
+Mission accomplished. 😌😂`,
+
+`Little one,
+मलाई miss गरेर यो खोलेकी हौ भने एउटा कुरा भन्न मन लाग्यो, दूरीले मान्छेहरूलाई टाढा राख्न सक्छ,
+तर मनमा भएको bond लाई टाढा बनाउन सक्दैन। हामी पहिलोपटक भेट्दा तिमी मेरी student थियौ। सायद त्यतिबेला हामीमध्ये कसैले पनि सोचेका थिएनौँ कि school बाहिर पनि हाम्रो एउटा यति राम्रो bond बन्नेछ । आज तिमी मेरो लागि केवल मेरो first batch को student होइनौ। तिमी मेरो little one sister हौ। त्यसैले धेरै miss भयो भने यो चिठी पढेर मुस्कुराउनु। अनि सम्झनू , Dada टाढा भए पनि, Dada को care कहिल्यै टाढा हुँदैन। 🤍`,
+
+`Ashika, थाक्यौ?
+ठीक छ। थोरै रोकिएर आराम गर। तर हार नमान।तिमीले जिन्दगीमा जे चाहन्छौ, त्यसका लागि तिमी आफैँमा धेरै capable छौ। कहिलेकाहीँ आफूलाई विश्वास गर्न गाह्रो हुन्छ, तर त्यही बेला आफूलाई सम्झाउनुपर्छ, “म सक्छु”। सबै कुरा एकैदिन मिल्नुपर्छ भन्ने छैन। Slowly, step by step अगाडि बढ। अनि जब तिमीले आफ्नो सपना पूरा गर्नेछौ नि, त्यो दिन मलाई सम्झेर एउटा कुरा भन्नू “हेर्नुस् Dada, मैले भनेको थिएँ नि म सक्छु!” 🤍 म त्यो दिनको पर्खाइमा हुनेछु। Keep going, little one.
+You’ve got this so easily ...💪🤍`,
+
+`Ashika,
+यदि कहिल्यै तिमीलाई आफू खास छैन जस्तो लाग्यो भने यो चिठी पढ्नु है। तिमी मेरो life मा random भएर आएको मान्छे होइनौ। तिमी मेरो school ma teacher हुँदा first batch को student भएर मेरो journey को एउटा सुरुवाती chapter मा आएकी थियौ। त्यो बेला relation teacher र student को थियो। तर समयसँगै त्यो relation बदलिँदै गयो एक गुरु र विद्यार्थीबाट चिनजान, चिनजानबाट अपनापन, अनि अपनापनबाट एउटा दादा–बहिनीको bond। त्यसैले तिमी मेरो लागि special छौ। तिमीलाई मैले जन्मदेखि चिनेको होइन,
+तर जीवनको एउटा सुन्दर समयमा भेटेर आफ्नै बनाएको हुँ। र केही सम्बन्धहरू रगतले होइन, मनले बनाएका हुन्छन्। तिमी त्यहीमध्येकी एक हौ, little one. 🤍कहिल्यै आफूलाई कम नसम्झिनू। u r loved, u r valued, and the most u will always have a special place in Mine’s heart.
+ Your Dada, Mr. Karki`,
+
+`Hey Ashika,
+यदि तिमी यहाँसम्म आइपुगेकी छौ भने, अब मेरा सबै “Open When” letters पढिसक्यौ होला। 🤍आजको दिन अरूको लागि एउटा date होला, तर मेरो लागि चाहिँ एउटा special मान्छे जन्मिएको दिन हो। Happy Birthday, Bune. 🤍 Relation नामले होइन, मनले नजिक बनाउने मान्छेहरू कम हुन्छन्।
+मेरो लागि तिमी त्यही rare person हौं। Keep smiling always. Gift त आजको लागि हो, तर तिमीप्रतिको respect, care अनि हाम्रो bond त्यो सधैँको लागि हो।
+Happy Birthday, Bune. 
+सुरुमा तिमी मेरी student थियौ—मेरो first batch को एउटा सानो नाम। तर आज फर्केर हेर्दा लाग्छ,
+त्यही भेटले मलाई एउटा little sister दियो।
+तिमीले मलाई teacher भनेर सम्मान गर्‍यौ,
+दादा भनेर अपनायौ, अनि बिस्तारै हाम्रो relation आफैँ special बन्दै गयो।
+त्यसैले birthday मा तिमीलाई gift मात्र दिन मन लागेन।
+तिमीले कहिल्यै उदास हुँदा खोल्न सक्ने,
+मलाई miss गर्दा पढ्न सक्ने, motivation चाहिँदा सम्झिन सक्ने मेरो केही शब्दहरू छोड्न मन लाग्यो। जिन्दगी जहाँ पुगे पनि, समय जति बदलिँदै गए पनि—
+तिमी मेरो first batch को student भएर सुरु भएको,
+तर मेरो little sister भएर बसेको मान्छे हौ। 🤍
+Happy Birthday once again, Ashika.
+Always stay happy.
+Always keep smiling.
+तिम्रो Dada,
+Mr. Karki 🤍`
+];
+
+const titles=[
+"Open when its ur birthday",
+"Open when u r feelin' sad",
+"Open when U feel cry",
+"Open when U need smile",
+"Open when U miss me",
+"Open when U need motivation",
+"Open when u need to remember how especial u are",
+"Last one msg"
+];
+
+function hideAll(){document.querySelectorAll('.card').forEach(x=>x.classList.add('hidden'))}
+function show(id){hideAll();document.getElementById(id).classList.remove('hidden')}
+function showNo(){show('noStep')}
+function backTo1(){show('step1')}
+function yesPrank(){
+  show('prank');
+  const loader=document.getElementById('loader');
+  const lines=["Checking identity...","Checking memories...","Checking birthday records...","Hmm... one moment..."];
+  let i=0; loader.textContent=lines[0];
+  const timer=setInterval(()=>{
+    i++;
+    if(i<lines.length) loader.textContent=lines[i];
+    else{
+      clearInterval(timer);
+      loader.classList.add('hidden');
+      document.getElementById('prankContent').classList.remove('hidden');
+      setTimeout(()=>{document.getElementById('cuteWarning').classList.remove('hidden');setTimeout(()=>{document.getElementById('continueMsg').classList.remove('hidden')},1400)},1200);
+      setTimeout(()=>{
+        document.getElementById('cuteWarning').classList.remove('hidden');
+        setTimeout(()=>{
+          document.getElementById('continueMsg').classList.remove('hidden');
+        },1400);
+      },1200);
+    }
+  },1200);
+}
+function goStep2(){show('step2Prank')} 
+function secondPrank(){show('step2Test')}
+function testYes(){show('step2Result'); document.getElementById('testResultText').textContent='Hmm… suspiciously confident. 😂'}
+function testNo(){show('step2Result'); document.getElementById('testResultText').textContent='Nice try… 🤨 You are definitely Ashika. 😂'}
+function showPasscode(){show('step2'); document.getElementById('p1').focus()}
+function checkPass(){
+  const code=['p1','p2','p3','p4'].map(id=>document.getElementById(id).value).join('');
+  if(code==='0708'){
+    document.getElementById('wrong').classList.add('hidden');
+    startBlackout();
+  }
+  else{
+    document.getElementById('wrong').classList.remove('hidden');
+    ['p1','p2','p3','p4'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('p1').focus();
+  }
+}
+document.querySelectorAll('.pass input').forEach((input,i,arr)=>{
+  input.addEventListener('input',()=>{
+    if(input.value && i<arr.length-1) arr[i+1].focus();
+  });
+  input.addEventListener('keydown',e=>{
+    if(e.key==='Backspace'&&!input.value&&i>0) arr[i-1].focus();
+  });
+});
+function startBlackout(){
+  const b=document.getElementById('blackout');
+  const t=document.getElementById('blackoutText');
+  b.classList.remove('hidden');
+  b.style.display='flex';
+
+  // Each message appears like a separate loading/error page for 2 seconds.
+  const screens=[
+    '<b>NETWORK ERROR</b>',
+    '<b>CONNECTION LOST</b>',
+    '<b>RELOADING THE INTERNET...</b>'
+  ];
+
+  t.innerHTML=screens[0];
+
+  setTimeout(()=>{
+    t.innerHTML=screens[1];
+  },2000);
+
+  setTimeout(()=>{
+    t.innerHTML=screens[2];
+  },4000);
+
+  setTimeout(()=>{
+    b.style.display='none';
+    b.classList.add('hidden');
+    show('topicsStep');
+  },6000);
+}
+function openLetter(i){
+  show('letterStep');
+
+  const themes=[
+    ['topic-birthday','🎂✨'],
+    ['topic-sad','🥺🌧️'],
+    ['topic-cry','😭💧'],
+    ['topic-smile','😌🌸'],
+    ['topic-miss','🫂🌙'],
+    ['topic-motivation','💪🌅'],
+    ['topic-special','🤍✨'],
+    ['topic-last','🔐🖤']
+  ];
+
+  document.body.className = themes[i][0];
+  document.getElementById('letterTitle').innerHTML =
+    '<div class="letter-vibe">'+themes[i][1]+'</div>'+titles[i];
+
+  const box=document.getElementById('letterText');
+  const actions=document.getElementById('letterActions');
+  box.innerHTML='';
+  actions.classList.add('hidden');
+  let n=0, text=messages[i];
+  const cursor=document.createElement('span'); cursor.className='cursor';
+  box.appendChild(cursor);
+  const timer=setInterval(()=>{
+    if(n<text.length){
+      cursor.insertAdjacentText('beforebegin',text[n]);
+      n++;
+    }else{
+      clearInterval(timer);
+      cursor.remove();
+      actions.classList.remove('hidden');
+    }
+  },32);
+}
+function backToTopics(){document.body.className='';show('topicsStep')}
+</script>
+</body>
+</html>
